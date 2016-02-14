@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuildRequest {
+public class BuildSearchRequest {
     @NotNull
     private ObjectId componentId;
     private Integer numberOfDays;
@@ -17,6 +17,7 @@ public class BuildRequest {
     private Long endDateEnds;
     private Long durationGreaterThan;
     private Long durationLessThan;
+    private Integer max;
     private List<BuildStatus> buildStatuses = new ArrayList<>();
 
     public ObjectId getComponentId() {
@@ -102,4 +103,8 @@ public class BuildRequest {
     public boolean validDurationRange() {
         return durationGreaterThan != null || durationLessThan != null;
     }
+
+    public Integer getMax() { return max; }
+
+    public void setMax(Integer max) { this.max = max; }
 }
